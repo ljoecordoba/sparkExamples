@@ -21,7 +21,8 @@ df = spark.read \
 df = spark.read.format("avro").option("avroSchema",avro_schema_string).load("path_to_avro_file")
 
 ##reading from mongo first method
-spark = spark.builder.appName("MongoDBRead").config("spark.mongodb.input.uri","mongodb://localhost/testdb.collection").config("spark.mongodb.output.uri","mongodb://localhost/testdb.collection"df = spark.read.format("com.mongodb.spark.sql.DefaultSource").load()
+spark = spark.builder.appName("MongoDBRead").config("spark.mongodb.input.uri","mongodb://localhost/testdb.collection").config("spark.mongodb.output.uri","mongodb://localhost/testdb.collection"
+df = spark.read.format("com.mongodb.spark.sql.DefaultSource").load()
 
 ##reading from mongodb second method
 df = spark.read.format("mongodb").option("uri","mongodb://localhost/testdb.collection").option("collection","collection_name").option("database","mongo_db_name").load()
